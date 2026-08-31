@@ -288,8 +288,8 @@
           ),
         };
         console.log(JSON.stringify(formdata, null, 2)); // Debugging
-        try {
-          const responce = await fetch("http://127.0.0.1:8000/predict", {
+        try { 
+          const responce = await fetch("https://student-mental-health-analysis-and-ai.onrender.com/predict", { 
             method: "POST",
             headers: {
               "Content-Type": "application/json",
