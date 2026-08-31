@@ -456,12 +456,12 @@
           }
         } catch (error) {
           console.error("Error:", error);
-          alert("An error occurred while making the prediction. Please try again later."),
+          alert("An error occurred while making the prediction. Please try again later.");
           (document.getElementById("Result").textContent =
             "An error occurred while making the prediction."),
             error;
         } finally {
-          console.log("Prediction request completed.");
+          
           submitbtn.disabled = false;
           submitbtn.classList.remove("opacity-60", "cursor-not-allowed"); 
           submitbtn.innerText = "Predict";
