@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from typing import Literal, Annotated
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
-
+import os
 import joblib
 
 app = FastAPI()
@@ -14,10 +14,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "best_model.pkl")
+SCALER_PATH = os.path.join(BASE_DIR, "scaler.pkl")      
+ENCODER_PATH = os.path.join(BASE_DIR, "encoder.pkl")
 # Load The Model
-model = joblib.load("best_model.pkl")
-scaler = joblib.load("scaler.pkl")
-encoders = joblib.load("encoders.pkl")
+model = joblib.load(MODEL_PATH)
+scaler = joblib.load(SCALER_PATH)
+encoders = joblib.load(ENCODER_PATH)
 
 
 class InputFields(BaseModel):
