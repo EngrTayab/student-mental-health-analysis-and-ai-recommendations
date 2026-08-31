@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 from typing import Literal, Annotated
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
+
 import joblib
 
 app = FastAPI()
