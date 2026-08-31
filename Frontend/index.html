@@ -224,12 +224,14 @@
           />
           <button
             type="submit"
+            id="submitBtn"
             class="bg-sky-500 hover:bg-sky-700 rounded-lg shadow-lg text-white py-2 px-6 mt-4 focus:outline-none focus:shadow-outline active:bg-sky-800 border border-sky-500 justify-center"
           >
             Predict
           </button>
           <button
             type="reset"
+            id="resetBtn"
             class="bg-gray-500 hover:bg-gray-700 rounded-lg shadow-lg text-white py-2 px-6 mt-4 focus:outline-none focus:shadow-outline active:bg-gray-800 border border-gray-500 justify-center ml-4"
           >
             Reset
@@ -264,6 +266,10 @@
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
+        const submitbtn=document.getElementById('submitBtn');
+        submitbtn.disabled = true;
+        submitbtn.classList.add("opacity-60", "cursor-not-allowed");
+        submitbtn.innerText = "Predicting...";
 
         const formdata = {
           Age: Number(document.querySelector("#Age").value),
@@ -450,9 +456,16 @@
           }
         } catch (error) {
           console.error("Error:", error);
+          alert("An error occurred while making the prediction. Please try again later."),
           (document.getElementById("Result").textContent =
             "An error occurred while making the prediction."),
             error;
+        } finally {
+          console.log("Prediction request completed.");
+          submitbtn.disabled = false;
+          submitbtn.classList.remove("opacity-60", "cursor-not-allowed"); 
+          submitbtn.innerText = "Predict";
+
         }
         this.reset(); // Reset the form after submission
       });
