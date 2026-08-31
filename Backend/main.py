@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 MODEL_PATH = os.path.join(BASE_DIR, "best_model.pkl")
 SCALER_PATH = os.path.join(BASE_DIR, "scaler.pkl")      
-ENCODER_PATH = os.path.join(BASE_DIR, "encoder.pkl")
+ENCODER_PATH = os.path.join(BASE_DIR, "encoders.pkl")
 # Load The Model
 model = joblib.load(MODEL_PATH)
 scaler = joblib.load(SCALER_PATH)
