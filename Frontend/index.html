@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <title>Student Health Analysis</title>
+  </head>
+  <body>
+    <div class="space-y-12 max-w-4xl mx-auto">
+      <!-- <h1 class="text-3xl font-bold text-center mt-8 mb-4">
+        Student Mental Health Analysis
+      </h1> -->
+      <!-- About Project -->
+      <section
+        class="bg-white rounded-2xl shadow-md border border-gray-200 p-8 mb-8"
+      >
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">
+          What is Student Mental Health Analysis?
+        </h3>
+
+        <p class="text-gray-600 leading-7">
+          Student Mental Health Analysis is a Machine Learning project that
+          predicts a student's stress level based on different academic,
+          lifestyle, social media and mental health related factors.
+        </p>
+
+        <p class="text-gray-600 leading-7 mt-4">
+          The application provides a simple form where users can enter their
+          information. The trained Machine Learning model analyzes these inputs
+          and predicts the student's stress category and provides AI
+          Recommendations.
+        </p>
+      </section>
+
+      <p class="text-center text-gray-600 mb-8">
+        Fill out the form below to predict stress levels based on your inputs.
+      </p>
+
+      <div
+        class="bg-white shadow-md rounded-lg p-8 space-y-6 border border-gray-300"
+      >
+        <form id="predictionForm" class="space-y-2">
+          <label
+            for="Age"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Age</label
+          >
+          <input
+            type="number"
+            id="Age"
+            name="Age"
+            placeholder="10-30"
+            class="placeholder:text-gray-500 placeholder:italic w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+            required
+            min="10"
+            max="30"
+          />
+          <label
+            for="Gender"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Gender</label
+          >
+          <select
+            name="Gender"
+            id="Gender"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <label
+            for="country"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Country</label
+          >
+          <select
+            name="country"
+            id="country"
+            autocomplete="country"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          >
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Azerbaijan">Azerbaijan</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Canada">Canada</option>
+            <option value="China">China</option>
+            <option value="India">India</option>
+            <option value="Japan">Japan</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="Other">Other</option>
+          </select>
+          <label
+            for="Academic_Level"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Education</label
+          >
+          <select
+            name="Academic_Level"
+            id="Academic_Level"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          >
+            <option value="High School">High School</option>
+            <option value="Undergraduate">Undergraduate</option>
+            <option value="Graduate">Graduate</option>
+          </select>
+          <label
+            for="Most_Used_Platform"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Social Media</label
+          >
+          <select
+            name="Most_Used_Platform"
+            id="Most_Used_Platform"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          >
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+            <option value="KakaoTalk">KakaoTalk</option>
+            <option value="LINE">LINE</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Snapchat">Snapchat</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Twitter">Twitter</option>
+            <option value="WeChat">WeChat</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="YouTube">YouTube</option>
+          </select>
+
+          <label
+            for="Purpose_Of_Use"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Purpose Of Use</label
+          >
+          <select
+            name="Purpose_Of_Use"
+            id="Purpose_Of_Use"
+            name="Purpose_Of_Use"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          >
+            <option value="Education">Education</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Networking">Networking</option>
+            <option value="News">News</option>
+            '
+          </select>
+          <label
+            for="Avg_Daily_Usage_Hours"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Avg Daily Usage Hours</label
+          >
+          <input
+            type="number"
+            id="Avg_Daily_Usage_Hours"
+            placeholder="1-12"
+            min="1"
+            max="12"
+            name="Avg_Daily_Usage_Hours"
+            class="placeholder:text-gray-500 placeholder:italic w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          />
+          <label
+            for="Study_Hours"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Study_Hours</label
+          >
+          <input
+            type="number"
+            id="Study_Hours"
+            placeholder="1-15"
+            min="1"
+            max="15"
+            name="Study_Hours"
+            class="placeholder:text-gray-500 placeholder:italic w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          />
+          <label
+            for="Physical_Activity_Hours"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Physical Activity Hours</label
+          >
+          <input
+            type="number"
+            id="Physical_Activity_Hours"
+            placeholder="0-15"
+            min="0"
+            max="15"
+            name="Physical_Activity_Hours"
+            class="placeholder:text-gray-500 placeholder:italic w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          />
+          <label
+            for="Sleep_Hours_Per_Night"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Sleep_Hours_Per_Night</label
+          >
+          <input
+            type="number"
+            id="Sleep_Hours_Per_Night"
+            placeholder="0-12"
+            min="0"
+            max="12"
+            name="Sleep_Hours_Per_Night"
+            class="placeholder:text-gray-500 placeholder:italic w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          />
+          <label
+            for="Mental_Health_Score"
+            class="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+            >Mental Health Score</label
+          >
+          <input
+            type="range"
+            id="Mental_Health_Score"
+            min="1"
+            max="12"
+            name="Mental_Health_Score"
+            class="placeholder:text-gray-500 placeholder:italic w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          />
+          <button
+            type="submit"
+            class="bg-sky-500 hover:bg-sky-700 rounded-lg shadow-lg text-white py-2 px-6 mt-4 focus:outline-none focus:shadow-outline active:bg-sky-800 border border-sky-500 justify-center"
+          >
+            Predict
+          </button>
+          <button
+            type="reset"
+            class="bg-gray-500 hover:bg-gray-700 rounded-lg shadow-lg text-white py-2 px-6 mt-4 focus:outline-none focus:shadow-outline active:bg-gray-800 border border-gray-500 justify-center ml-4"
+          >
+            Reset
+          </button>
+        </form>
+
+        <div id="Result" class="mt-6"></div>
+      </div>
+    </div>
+    <footer>
+      <div class="text-center mt-8 mb-4 text-gray-600">
+        &copy; 2026 Student Mental Health Analysis. All rights reserved.
+        <a
+          href="https://github.com/EngrTayab"
+          class="text-blue-500 hover:underline"
+          target="_blank"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://www.linkedin.com/in/muhammad-tayyab-asif-5391bb307/ "
+          class="text-blue-500 hover:underline ml-4"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      const form = document.querySelector("#predictionForm");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const formdata = {
+          Age: Number(document.querySelector("#Age").value),
+          Gender: document.querySelector("#Gender").value,
+          Country: document.querySelector("#country").value,
+          Academic_Level: document.querySelector("#Academic_Level").value,
+          Most_Used_Platform: document.querySelector("#Most_Used_Platform")
+            .value,
+          Purpose_Of_Use: document.querySelector("#Purpose_Of_Use").value,
+          Avg_Daily_Usage_Hours: Number(
+            document.querySelector("#Avg_Daily_Usage_Hours").value
+          ),
+          Study_Hours: Number(document.querySelector("#Study_Hours").value),
+          Physical_Activity_Hours: Number(
+            document.querySelector("#Physical_Activity_Hours").value
+          ),
+          Sleep_Hours_Per_Night: Number(
+            document.querySelector("#Sleep_Hours_Per_Night").value
+          ),
+          Mental_Health_Score: Number(
+            document.querySelector("#Mental_Health_Score").value
+          ),
+        };
+        console.log(JSON.stringify(formdata, null, 2)); // Debugging
+        try {
+          const responce = await fetch("http://127.0.0.1:8000/predict", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formdata),
+          });
+          if (responce.ok) {
+            const data = await responce.json();
+            // document.getElementById(
+            //   "Result"
+            // ).textContent = `Prediction  : ${data.prediction}`;
+            document.getElementById("Result").innerHTML = `
+
+            <div class="mt-6 bg-grey border border-gray-200 rounded-2xl shadow-lg p-6 space-y-6">
+
+  
+              <h2 class="text-2xl font-bold text-center text-gray-800">
+                 Predicting Student Stress Level
+              </h2>
+
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-sky-50 border border-sky-100 p-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-sky-600">Stress Level</span>
+                <div class="text-lg font-bold text-sky-900 mt-1">${data.prediction}</div>
+              </div>
+
+              <div class="bg-indigo-50 border border-indigo-100 p-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+
+                <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Confidence</span>
+
+                <div class="text-lg font-bold text-indigo-900 mt-1">${(Number(data.Probability) * 100).toFixed(1)}%</div>
+              </div>
+
+              <div class="bg-purple-50 border border-purple-100 p-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                <span class="text-xs font-semibold uppercase tracking-wider text-purple-600">Best Model</span>
+                <div class="text-lg font-bold text-purple-900 mt-1">${ data.Best_Model}</div>
+              </div>
+
+              <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600">Accuracy</span>
+                <div class="text-lg font-bold text-emerald-900 mt-1">${(Number(data.model_accuracy) * 100).toFixed(1)}%</div>
+              </div>
+
+            </div>
+
+
+            <!-- Prediction Card -->
+            <div class="mt-6 bg-white border border-gray-200 rounded-4xl shadow-lg p-6">
+            
+              <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">
+                Analysis Summary
+              </h2>
+
+
+              <div class="text-center">
+                <span class="inline-block bg-sky-100 text-sky-700
+                                px-6 py-3 rounded
+                                text-lg font-bold shadow-sm"> Your responses have been successfully analyzed by our Machine Learning model. Below is a detailed breakdown of your current predicted stress indicators. These metrics reflect patterns derived from your daily routine, academic workload, and lifestyle habits. A higher confidence score highlights strong correlation with historical student data. The accuracy score demonstrates how reliably our selected algorithm evaluates your inputs. Managing stress early helps maintain both academic performance and personal well-being. To assist you further, we have generated customized actionable suggestions based on your results. Click the button below to unlock practical tips to lower stress and optimize your daily routine. Small improvements in sleep, study balance, and physical activity can bring significant changes. Re-evaluating your daily habits regularly ensures long-term mental clarity. Use these insights as a helpful benchmark rather than a definitive medical diagnostic. Tap AI Recommendations below to view your personalized self-care strategy.
+                </span>
+              </div>
+
+                  <!-- Separate Recommendation Button -->
+                <div class="text-center mt-6">
+                    <button
+                      id="recommendationBtn"
+                      type="button"
+                      class="bg-gradient-to-r from-purple-500 to-indigo-600
+
+                      hover:from-purple-600 hover:to-indigo-700
+                      text-white font-semibold
+                      px-6 py-3 rounded-xl
+                      shadow-md hover:shadow-xl
+                      transition duration-300"
+                    >
+                    ✨ AI Recommendations
+                  </button>
+                </div>
+                <div class='text-right mt-4 
+                            border-t border-gray-200 pt-4 '>
+                  <button 
+                    id='checkanother'
+                    type='button'
+                    class='bg-gradient-to-r from-gray-500 to-gray-600
+                            hover:from-gray-600 hover:to-gray-700
+                            text-white font-semibold
+                            px-4 py-2 rounded-lg
+                            shadow-md hover:shadow-lg
+                            transition duration-300'
+                            cursor-pointer
+                  >
+                     Check Another Profile
+                  </button>
+                </div>
+              
+
+            <!-- Recommendations will appear here -->
+              <div id="recommendationBox" class="hidden mt-6"></div>
+
+            </div>`;
+            document.getElementById("checkanother").addEventListener("click", () => {
+              document.getElementById("Result").innerHTML = "";
+              document.getElementById("recommendationBox").classList.add("hidden");
+              document.getElementById("recommendationBtn").disabled = false;
+              document
+                .getElementById("recommendationBtn")
+                .classList.remove("opacity-60", "cursor-not-allowed");
+            }); 
+
+            document
+              .getElementById("recommendationBtn")
+              .addEventListener("click", () => {
+                const box = document.getElementById("recommendationBox");
+                box.innerHTML = `
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50
+                            border border-indigo-100
+                            rounded-2xl p-6 shadow-inner">
+                            <h3 class="text-xl font-bold text-indigo-700 mb-5">
+                               ✨ AI Recommendations
+                            </h3>
+                            <div class="space-y-3">
+                              ${data.recommendation
+                                .map(
+                                  (rec, index) => `
+                                <div class="flex items-start gap-3
+                                            bg-gradient-to-r from-white to-gray-50
+                                            border border-gray-100
+                                            rounded-xl
+                                            p-4
+                                            shadow-sm
+                                            hover:shadow-md
+                                            transition">
+                                  <div class="flex-shrink-0
+                                              w-8 h-8
+                                              rounded-full
+                                              bg-indigo-600
+                                              text-white
+                                              flex items-center justify-center
+                                              font-bold">
+                                      ${index + 1}
+                                  </div>
+                                  <p class="text-gray-700 leading-relaxed">
+                                        ${rec}
+                                  </p>
+                                </div>
+                              `
+                                )
+                                .join("")}
+                            </div>`;
+                box.classList.remove("hidden");
+                document.getElementById("recommendationBtn").disabled = true;
+                document
+                  .getElementById("recommendationBtn")
+                  .classList.add("opacity-60", "cursor-not-allowed");
+              });
+          } else {
+            console.error("Error:", responce.statusText);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          (document.getElementById("Result").textContent =
+            "An error occurred while making the prediction."),
+            error;
+        }
+        this.reset(); // Reset the form after submission
+      });
+    </script>
+  </body>
+</html>
