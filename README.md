@@ -5,20 +5,19 @@ A machine learning based web application that analyzes student health-related in
 ## 🚀 Live Demo
 
 **Frontend:**
-https://YOUR-VERCEL-LINK.vercel.app
+https://student-mental-health-analysis-and-delta.vercel.app/
 
 **Backend API:**
-https://YOUR-RENDER-LINK.onrender.com
+https://student-mental-health-analysis-and-ai.onrender.com
 
 **API Documentation:**
-https://YOUR-RENDER-LINK.onrender.com/docs
+https://student-mental-health-analysis-and-ai.onrender.com/docs
 
 ## ✨ Features
 
 * Student mental health prediction using Machine Learning
 * FastAPI REST API
 * Data preprocessing using saved encoders and scaler
-* AI-based recommendations
 * Simple and responsive frontend
 * Live frontend and backend deployment
 
